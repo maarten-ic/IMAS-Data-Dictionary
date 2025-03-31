@@ -9,19 +9,6 @@
 			<xs:documentation>Various ion global quantities</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="t_i_volume_average">
-				<xs:annotation>
-					<xs:documentation>Volume averaged temperature of this ion species (averaged over the plasma volume up to the LCFS)</xs:documentation>
-					<xs:appinfo>
-						<coordinate1>/time</coordinate1>
-						<units>eV</units>
-						<type>dynamic</type>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:group ref="FLT_1D"/>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="n_i_volume_average">
 				<xs:annotation>
 					<xs:documentation>Volume averaged density of this ion species (averaged over the plasma volume up to the LCFS)</xs:documentation>
@@ -44,14 +31,27 @@
 		<xs:sequence>
 			<xs:element name="ip">
 				<xs:annotation>
-					<xs:documentation>Total plasma current (toroidal component). Positive sign means anti-clockwise when viewed from above.</xs:documentation>
+					<xs:documentation>Changing some properties. Total plasma current (toroidal component). Positive sign means anti-clockwise when viewed from above.</xs:documentation>
 					<xs:appinfo>
 						<coordinate1>../../time</coordinate1>
-						<units>A</units>
+						<units>A.m^2.m^-2</units>
 						<type>dynamic</type>
 						<cocos_label_transformation>ip_like</cocos_label_transformation>
 						<cocos_transformation_expression>.sigma_ip_eff</cocos_transformation_expression>
 						<cocos_leaf_name_aos_indices>core_profiles.global_quantities.ip</cocos_leaf_name_aos_indices>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:group ref="FLT_1D"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="test">
+				<xs:annotation>
+					<xs:documentation>Test adding a new quantity.</xs:documentation>
+					<xs:appinfo>
+						<coordinate1>../../time</coordinate1>
+						<units>1</units>
+						<type>dynamic</type>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexType>
