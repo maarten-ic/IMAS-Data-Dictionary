@@ -1,4 +1,4 @@
-# IMAS Data Dictionary
+# edit IMAS Data Dictionary
 
 The Data Dictionary is the implementation of the Data Model of ITER's
 Integrated Modelling & Analysis Suite (IMAS). It describes the
