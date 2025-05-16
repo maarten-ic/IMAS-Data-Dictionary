@@ -43,12 +43,15 @@ jobs:
       run: |
         cd _destination
         
-        git config --local user.name "${{ github.actor }}"
+        git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions@github.com"
 
         git checkout -b 'release/${{ github.ref_name }}'
         git add -A
-        git commit -m "[bot] Upload Data Dictionary release ${{ github.ref_name }}"
+        git commit \
+          -m "🤖 Upload Data Dictionary release: ${{ github.ref_name }}" \
+          -m "Automatic upload triggered by a (new) tag on ${{ github.repository }}."
 
-        git push origin 'release/${{ github.ref_name }}'
+        # Use a force push in case the tag is moved
+        git push -f origin 'release/${{ github.ref_name }}'
         gh pr create --base main --fill --head 'release/${{ github.ref_name }}'
